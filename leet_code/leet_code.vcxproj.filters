@@ -27,6 +27,12 @@
     <ClInclude Include="two_sum.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="add_two_num.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="reverse_int.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
