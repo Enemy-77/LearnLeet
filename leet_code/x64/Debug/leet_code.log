@@ -1,4 +1,4 @@
 ﻿  test.cpp
-d:\workspace\leet_code\leet_code\reverse_int.h(20): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+d:\workspace\leet_code\leet_code\reverse_int.h(18): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   leet_code.vcxproj -> D:\workspace\leet_code\x64\Debug\leetcode.exe
   leet_code.vcxproj -> D:\workspace\leet_code\x64\Debug\leetcode.pdb (Full PDB)
