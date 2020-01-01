@@ -1,9 +1,7 @@
 #pragma once
 
 #include <vector>
-/**
-* Definition for a binary tree node. */
-
+#include <algorithm>
 
 struct TreeNode {
      int val;
@@ -39,3 +37,10 @@ bool isSymmetric(TreeNode* root)
 {
 	return isMirror(root, root);
 }
+
+
+int maxDepth(TreeNode* root)
+{
+	return root == nullptr ? 0 : std::max(maxDepth(root->left), maxDepth(root->right)) + 1;
+}
+
