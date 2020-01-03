@@ -44,3 +44,22 @@ int maxDepth(TreeNode* root)
 	return root == nullptr ? 0 : std::max(maxDepth(root->left), maxDepth(root->right)) + 1;
 }
 
+void levelOrder(TreeNode* node, std::vector<std::vector<int>>& ans, int level)
+{
+	if (!node)
+		return;
+	if (level > ans.size())
+		ans.push_back({});
+	ans[level].push_back(node->val);
+	levelOrder(node->left, ans, level + 1);
+	levelOrder(node->right, ans, level + 1);
+}
+
+std::vector<std::vector<int>> levelOrderBottom(TreeNode* root) 
+{
+	std::vector<std::vector<int>> ans;
+	levelOrder(root, ans, 0);
+	reverse(ans.begin(), ans.end());
+	return ans;
+}
+
