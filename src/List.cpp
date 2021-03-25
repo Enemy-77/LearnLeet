@@ -19,7 +19,7 @@ ListNode* reverseList(ListNode* head) {
 	}
 	return newHead;
 }
-// 更好的版本
+// 更好的版本（更整体）
 ListNode* reverseList(ListNode* head) {
 	ListNode* prev = nullptr;
 	ListNode* cur = head;
@@ -30,4 +30,33 @@ ListNode* reverseList(ListNode* head) {
 		cur = next;
 	}
 	return prev;
+}
+
+
+ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+	ListNode* head = nullptr, *tail = nullptr;
+	int carry = 0;
+	while (l1 || l2) {
+		int v1 = l1 ? l1->val : 0;
+		int v2 = l2 ? l2->val : 0;
+		int value = v1 + v2 + carry;
+		if (!head) {
+			head = tail = new ListNode(value % 10);
+		}
+		else {
+			tail->next = new ListNode(value % 10);
+			tail = tail->next;
+		}
+		carry = value / 10;
+		if (l1) {
+			l1 = l1->next;
+		}
+		if (l2){
+			l2 = l2->next;
+		}
+	}
+	if (carry > 0) {
+		tail->next = new ListNode(carry);
+	}
+	return head;
 }
