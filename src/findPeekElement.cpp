@@ -52,3 +52,22 @@ int findPeakElement(vector<int>& nums) {
 	}
 	return 0;
 }
+
+// 思维层级更高的版本  
+// 递归二分
+
+int find(vector<int>& num, int left, int right) {
+	if (left == right) {
+		return left;
+	}
+	int mid = (left + right) / 2;
+	if (num[mid] > num[mid + 1]) {
+		return find(num, left, mid);
+	} else {
+		return find(num, mid + 1, right);
+	}
+}
+
+int findPeakElement(vector<int>& nums) {
+	return find(nums, 0, nums.size() - 1);
+}
