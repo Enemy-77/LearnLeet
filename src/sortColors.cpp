@@ -36,6 +36,7 @@ nums[i] 为 0、1 或 2
 
 using namespace std;
 
+// 暴力解法，统计0，1，2的个数，然后重新生成
 void sortColors(vector<int>& nums) {
     int zero_count = 0;
     int one_count = 0;
@@ -53,3 +54,24 @@ void sortColors(vector<int>& nums) {
         nums[j] = 2;
     }
 }
+
+//单指针
+void sortColors(vector<int>& nums) {
+	if (nums.size()< 2) {
+		return;
+	}
+	int front = 0;
+	for (int i = 0; i < nums.size(); ++i) {
+		if (nums[i] == 0) {
+			swap(nums[i], nums[front]);
+            front++;
+		}
+	}
+	for (int i = front; i < nums.size(); ++i) {
+        if (nums[i] == 1) {
+            swap(nums[i], nums[front]);
+			++front;
+        }
+    }
+}
+
