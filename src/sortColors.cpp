@@ -75,3 +75,28 @@ void sortColors(vector<int>& nums) {
     }
 }
 
+
+// 双指针，只需扫描一遍
+void sortColors(vector<int>& nums) {
+	if (nums.size() < 2) {
+		return;
+	}
+	int ptr_0 = 0;
+	int ptr_1 = 0;
+	for (int i = 0; i < nums.size(); ++i) {
+		if (nums[i] == 1) {
+			swap(nums[i], nums[ptr_1]);
+			ptr_1++;
+		}
+		else if (nums[i] == 0) {
+			swap(nums[i], nums[ptr_0]);
+			if (ptr_0 < ptr_1) {
+				swap(nums[i], nums[ptr_1]);
+			}
+			ptr_0++;
+			ptr_1++;
+		}
+	}
+}
+
+
