@@ -19,6 +19,7 @@ ListNode* reverseList(ListNode* head) {
 	}
 	return newHead;
 }
+
 // 更好的版本（更整体）
 ListNode* reverseList(ListNode* head) {
 	ListNode* prev = nullptr;
