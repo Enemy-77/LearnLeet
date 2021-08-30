@@ -13,7 +13,7 @@
 你能用 O(1)（即，常量）内存解决此问题吗？
 */
 
-
+// 哈希
 
 bool hasCycle(ListNode *head) {
 	std::unordered_set<ListNode*> indices;
@@ -26,3 +26,20 @@ bool hasCycle(ListNode *head) {
 	}
 	return false;
 }
+
+// 快慢指针（龟兔赛跑模型）
+bool hasCycle(ListNode *head) {
+    if (head == nullptr || head->next == nullptr) {
+        return false;
+    }
+	ListNode* slow = head, * fast = head->next;
+	while (slow != fast) {
+		if (fast == nullptr || fast->next == nullptr) {
+			return false;
+		}
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+	return true;
+}
+
